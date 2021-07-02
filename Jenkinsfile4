@@ -56,7 +56,8 @@ pipeline {
     }
     post {
         success { 
-            slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+            office365ConnectorSend webhookUrl: 'https://everisgroup.webhook.office.com/webhookb2/f2a519ca-3941-46fa-8b95-c1855c9fb31d@3048dc87-43f0-4100-9acb-ae1971c79395/JenkinsCI/4e71f70403f64e26a507ee27264bcdee/5d8c3450-95b8-40d8-86c7-95fd42e098df',
+                        message: 'Ejecucion Realizada Correctamente'
         }
         failure {
             slackSend message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
